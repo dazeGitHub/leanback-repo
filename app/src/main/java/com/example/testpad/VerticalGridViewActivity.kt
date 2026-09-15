@@ -7,7 +7,7 @@ import android.view.View
 import androidx.activity.ComponentActivity
 import androidx.leanback.widget.VerticalGridView
 
-class MainActivity : ComponentActivity() {
+class VerticalGridViewActivity : ComponentActivity() {
 
     companion object {
         private const val TAG = "FocusDemo"
