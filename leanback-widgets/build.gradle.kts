@@ -33,7 +33,7 @@ publishing {
             afterEvaluate {
                 components.findByName("release")?.let { from(it) }
             }
-            groupId = "com.github.your-github-username"
+            groupId = "com.github.dazeGitHub"
             artifactId = "components"
             version = "1.0.0"
         }
