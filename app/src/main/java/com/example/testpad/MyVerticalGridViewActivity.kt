@@ -19,10 +19,6 @@ class MyVerticalGridViewActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_vertical_grid)
 
-        findViewById<View>(R.id.btn_go_recy).setOnClickListener {
-            startActivity(Intent(this, RecyclerViewActivity::class.java))
-        }
-
         val gridView = findViewById<VerticalGridView>(R.id.verticalGridView)
 
         // 设置列数（多列才能让左右方向键也生效）
