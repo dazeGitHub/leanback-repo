@@ -11,6 +11,8 @@ kotlin = "2.2.10"
 composeBom = "2026.02.01"
 leanback = "1.2.0"
 recyclerview = "1.4.0"
+appcompat = "1.8.0"
+material = "1.10.0"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -30,8 +32,11 @@ androidx-compose-material3 = { group = "androidx.compose.material3", name = "mat
 androidx-leanback = { group = "androidx.leanback", name = "leanback", version.ref = "leanback" }
 androidx-recyclerview = { group = "androidx.recyclerview", name = "recyclerview", version.ref = "recyclerview" }
 androidx-constraintlayout = { module = "androidx.constraintlayout:constraintlayout", version.ref = "constraintlayout" }
+androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
+material = { group = "com.google.android.material", name = "material", version.ref = "material" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
 kotlin-compose = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
+android-library = { id = "com.android.library", version.ref = "agp" }
 
