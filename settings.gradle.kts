@@ -24,4 +24,4 @@ dependencyResolutionManagement {
 
 rootProject.name = "TestPad"
 include(":app")
-include(":mylibrary")
+include(":components")
