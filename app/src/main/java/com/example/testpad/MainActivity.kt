@@ -1,5 +1,6 @@
 package com.example.testpad
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.View
@@ -15,6 +16,10 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        findViewById<View>(R.id.btn_go_recy).setOnClickListener {
+            startActivity(Intent(this, RecyclerViewActivity::class.java))
+        }
 
         val gridView = findViewById<VerticalGridView>(R.id.verticalGridView)
 
