@@ -5,10 +5,11 @@ import android.os.Bundle
 import android.util.Log
 import android.view.View
 import androidx.activity.ComponentActivity
-import androidx.leanback.widget.VerticalGridView
 import com.example.testpad.utils.DeviceUtils
+import com.myleanback.widget.OnChildViewHolderSelectedListener
+import com.myleanback.widget.VerticalGridView
 
-class VerticalGridViewActivity : ComponentActivity() {
+class MyVerticalGridViewActivity : ComponentActivity() {
 
     companion object {
         private const val TAG = "FocusDemo"
@@ -17,6 +18,10 @@ class VerticalGridViewActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_vertical_grid)
+
+        findViewById<View>(R.id.btn_go_recy).setOnClickListener {
+            startActivity(Intent(this, RecyclerViewActivity::class.java))
+        }
 
         val gridView = findViewById<VerticalGridView>(R.id.verticalGridView)
 
@@ -36,7 +41,7 @@ class VerticalGridViewActivity : ComponentActivity() {
 
         // 监听焦点变化
         gridView.setOnChildViewHolderSelectedListener(
-            object : androidx.leanback.widget.OnChildViewHolderSelectedListener() {
+            object : OnChildViewHolderSelectedListener() {
                 override fun onChildViewHolderSelected(
                     parent: androidx.recyclerview.widget.RecyclerView,
                     child: androidx.recyclerview.widget.RecyclerView.ViewHolder?,

@@ -1,29 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical">
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <TextView
+    <Button
+        android:id="@+id/btn_go_vertical_grid"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="VerticalGridView Demo"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        android:layout_marginBottom="16dp" />
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:text="跳转到 VerticalGrid"
+        />
+
+    <Button
+        android:id="@+id/btn_go_vertical_grid2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toRightOf="@id/btn_go_vertical_grid"
+        app:layout_constraintTop_toTopOf="parent"
+        android:text="跳转到 VerticalGrid2"
+        />
 
     <Button
         android:id="@+id/btn_go_recy"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btn_go_vertical_grid"
         android:text="跳转到 RecyclerViewActivity"
         />
 
-    <com.example.testpad.NoHorizontalScrollGridView
-        android:id="@+id/verticalGridView"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        />
-
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
