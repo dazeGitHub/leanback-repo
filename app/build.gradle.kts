@@ -5,12 +5,14 @@ plugins {
 android {
     namespace = "com.example.testpad"
     compileSdk {
-        version = release(37)
+        version = release(36) {
+            minorApiLevel = 1
+        }
     }
 
     defaultConfig {
         applicationId = "com.example.testpad"
-        minSdk = 24
+        minSdk = 23
         targetSdk = 37
         versionCode = 1
         versionName = "1.0"
