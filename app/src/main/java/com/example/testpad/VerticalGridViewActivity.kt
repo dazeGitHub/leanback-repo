@@ -4,11 +4,11 @@ import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.View
-import androidx.activity.ComponentActivity
+import androidx.appcompat.app.AppCompatActivity
 import androidx.leanback.widget.VerticalGridView
 import com.example.testpad.utils.DeviceUtils
 
-class VerticalGridViewActivity : ComponentActivity() {
+class VerticalGridViewActivity : AppCompatActivity() {
 
     companion object {
         private const val TAG = "FocusDemo"

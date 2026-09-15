@@ -2,11 +2,11 @@ package com.example.testpad
 
 import android.os.Bundle
 import android.util.Log
-import androidx.activity.ComponentActivity
+import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 
-class RecyclerViewActivity : ComponentActivity() {
+class RecyclerViewActivity : AppCompatActivity() {
 
     companion object {
         private const val TAG = "RVFocusDemo"
