@@ -5,7 +5,9 @@ import android.os.Bundle
 import android.util.Log
 import android.view.View
 import androidx.activity.ComponentActivity
+import androidx.leanback.widget.BaseGridView
 import androidx.leanback.widget.VerticalGridView
+import com.example.testpad.utils.DeviceUtils
 
 class VerticalGridViewActivity : ComponentActivity() {
 
@@ -24,7 +26,11 @@ class VerticalGridViewActivity : ComponentActivity() {
         val gridView = findViewById<VerticalGridView>(R.id.verticalGridView)
 
         // 设置列数（多列才能让左右方向键也生效）
-        gridView.setNumColumns(3)
+        gridView.setNumColumns(2)
+//        gridView.setFocusScrollStrategy(BaseGridView.FOCUS_SCROLL_ON_SCREEN); //用不了
+
+        val screenWidth = DeviceUtils.getScreenWidth(this)
+        gridView.setColumnWidth(screenWidth / 2)
 
         // 准备示例数据
         val items = (1..30).map { i ->

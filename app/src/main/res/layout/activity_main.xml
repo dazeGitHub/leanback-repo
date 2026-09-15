@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical">
 
     <TextView
@@ -19,9 +20,10 @@
         android:text="跳转到 RecyclerViewActivity"
         />
 
-    <androidx.leanback.widget.VerticalGridView
+    <com.example.testpad.NoHorizontalScrollGridView
         android:id="@+id/verticalGridView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"
+        />
 
 </LinearLayout>
