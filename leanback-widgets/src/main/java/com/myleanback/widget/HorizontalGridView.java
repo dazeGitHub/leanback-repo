@@ -34,8 +34,8 @@ import android.view.View;
 import androidx.core.view.ViewCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
-import org.jspecify.annotations.NonNull;
-import org.jspecify.annotations.Nullable;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
 /**
  * A {@link android.view.ViewGroup} that shows items in a horizontal scrolling list. The items

@@ -20,8 +20,8 @@ import android.util.SparseIntArray;
 import androidx.collection.CircularIntArray;
 import androidx.recyclerview.widget.RecyclerView;
 
-import org.jspecify.annotations.NonNull;
-import org.jspecify.annotations.Nullable;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
 import java.io.PrintWriter;
 import java.util.Arrays;
@@ -293,7 +293,7 @@ abstract class Grid {
      * Finds the largest or smallest row min edge of visible items,
      * the row index is returned in indices[0], the item index is returned in indices[1].
      */
-    public final int findRowMin(boolean findLarge, int @Nullable [] indices) {
+    public final int findRowMin(boolean findLarge, int[] indices) {
         return findRowMin(findLarge, mReversedFlow ? mLastVisibleIndex : mFirstVisibleIndex,
                 indices);
     }
@@ -309,7 +309,7 @@ abstract class Grid {
      * Finds the largest or smallest row max edge of visible items, the row index is returned in
      * indices[0], the item index is returned in indices[1].
      */
-    public final int findRowMax(boolean findLarge, int @Nullable [] indices) {
+    public final int findRowMax(boolean findLarge, int[] indices) {
         return findRowMax(findLarge, mReversedFlow ? mFirstVisibleIndex : mLastVisibleIndex,
                 indices);
     }
@@ -539,7 +539,7 @@ abstract class Grid {
      * Queries items adjacent to the viewport (in the direction of da) into the prefetch registry.
      */
     public void collectAdjacentPrefetchPositions(int fromLimit, int da,
-                                                 RecyclerView.LayoutManager.@NonNull LayoutPrefetchRegistry layoutPrefetchRegistry) {
+                                                 RecyclerView.LayoutManager.LayoutPrefetchRegistry layoutPrefetchRegistry) {
     }
 
     public abstract void debugPrint(PrintWriter pw);

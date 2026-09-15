@@ -18,22 +18,21 @@ package com.myleanback.widget;
 import android.annotation.SuppressLint;
 
 import com.myleanback.widget.ItemAlignmentFacet.ItemAlignmentDef;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.RecyclerView;
 
-import org.jspecify.annotations.NonNull;
-import org.jspecify.annotations.Nullable;
 
 /**
  * Interface for receiving notification when a child of this ViewGroup has been selected.
  * There are two methods:
  * <ul>
  * <li>
- *     {link {@link #onChildViewHolderSelected(RecyclerView, RecyclerView.ViewHolder, int, int)}}
  *     is called when the view holder is about to be selected.  The listener could change size
  *     of the view holder in this callback.
  * </li>
  * <li>
- *     {link {@link #onChildViewHolderSelectedAndPositioned(RecyclerView, RecyclerView.ViewHolder,
  *     int, int)} is called when view holder has been selected and laid out in RecyclerView.
  * </li>
  * </ul>
@@ -43,7 +42,6 @@ public abstract class OnChildViewHolderSelectedListener {
     /**
      * Callback method to be invoked when a child of this ViewGroup has been selected. Listener
      * might change the size of the child and the position of the child is not finalized. To get
-     * the final layout position of child, override {@link #onChildViewHolderSelectedAndPositioned(
      *RecyclerView, RecyclerView.ViewHolder, int, int)}.
      *
      * @param parent      The RecyclerView where the selection happened.
@@ -55,7 +53,7 @@ public abstract class OnChildViewHolderSelectedListener {
      *                    0 if there is no ItemAlignmentDef defined for the item.
      */
     public void onChildViewHolderSelected(@NonNull RecyclerView parent,
-                                          RecyclerView.@Nullable ViewHolder child,
+                                          @Nullable RecyclerView.ViewHolder child,
                                           int position, int subposition) {
     }
 
@@ -72,6 +70,6 @@ public abstract class OnChildViewHolderSelectedListener {
      *                    0 if there is no ItemAlignmentDef defined for the item.
      */
     public void onChildViewHolderSelectedAndPositioned(@NonNull RecyclerView parent,
-                                                       RecyclerView.@Nullable ViewHolder child, int position, int subposition) {
+                                                       @Nullable RecyclerView.ViewHolder child, int position, int subposition) {
     }
 }

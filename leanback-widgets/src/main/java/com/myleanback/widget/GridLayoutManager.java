@@ -44,6 +44,8 @@ import android.view.accessibility.AccessibilityEvent;
 import android.view.animation.AccelerateDecelerateInterpolator;
 import android.widget.GridView;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.annotation.VisibleForTesting;
 import androidx.collection.CircularIntArray;
 import androidx.core.view.ViewCompat;
@@ -54,8 +56,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.RecyclerView.Recycler;
 import androidx.recyclerview.widget.RecyclerView.State;
 
-import org.jspecify.annotations.NonNull;
-import org.jspecify.annotations.Nullable;
 
 import java.io.PrintWriter;
 import java.io.StringWriter;
@@ -1093,8 +1093,7 @@ public final class GridLayoutManager extends RecyclerView.LayoutManager {
 
     }
 
-    @Override
-    public boolean checkLayoutParams(RecyclerView.@Nullable LayoutParams lp) {
+    public boolean checkLayoutParams(LayoutParams lp) {
         return lp instanceof LayoutParams;
     }
 
@@ -1120,7 +1119,7 @@ public final class GridLayoutManager extends RecyclerView.LayoutManager {
      * {@inheritDoc}
      */
     @Override
-    public RecyclerView.@NonNull LayoutParams generateDefaultLayoutParams() {
+    public @NonNull LayoutParams generateDefaultLayoutParams() {
         return new LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT,
                 ViewGroup.LayoutParams.WRAP_CONTENT);
     }
@@ -1129,7 +1128,7 @@ public final class GridLayoutManager extends RecyclerView.LayoutManager {
      * {@inheritDoc}
      */
     @Override
-    public RecyclerView.@NonNull LayoutParams generateLayoutParams(@NonNull Context context,
+    public @NonNull LayoutParams generateLayoutParams(@NonNull Context context,
             @NonNull AttributeSet attrs) {
         return new LayoutParams(context, attrs);
     }
@@ -1138,8 +1137,7 @@ public final class GridLayoutManager extends RecyclerView.LayoutManager {
      * {@inheritDoc}
      */
     @Override
-    public RecyclerView.@NonNull LayoutParams generateLayoutParams(
-            ViewGroup.@NonNull LayoutParams lp) {
+    public LayoutParams generateLayoutParams(ViewGroup.LayoutParams lp) {
         if (lp instanceof LayoutParams) {
             return new LayoutParams((LayoutParams) lp);
         } else if (lp instanceof RecyclerView.LayoutParams) {
@@ -2094,7 +2092,7 @@ public final class GridLayoutManager extends RecyclerView.LayoutManager {
     }
 
     @Override
-    public void removeAndRecycleAllViews(RecyclerView.@NonNull Recycler recycler) {
+    public void removeAndRecycleAllViews(@NonNull Recycler recycler) {
         if (DEBUG) Log.v(TAG, "removeAndRecycleAllViews " + getChildCount());
         for (int i = getChildCount() - 1; i >= 0; i--) {
             removeAndRecycleViewAt(i, recycler);
@@ -2207,8 +2205,8 @@ public final class GridLayoutManager extends RecyclerView.LayoutManager {
 
     // Lays out items based on the current scroll position
     @Override
-    public void onLayoutChildren(RecyclerView.@NonNull Recycler recycler,
-            RecyclerView.@NonNull State state) {
+    public void onLayoutChildren(@NonNull Recycler recycler,
+            @NonNull State state) {
         if (DEBUG) {
             Log.v(getTag(), "layoutChildren start numRows " + mNumRows
                     + " inPreLayout " + state.isPreLayout()
@@ -2436,7 +2434,7 @@ public final class GridLayoutManager extends RecyclerView.LayoutManager {
 
     @Override
     public int scrollHorizontallyBy(int dx, @NonNull Recycler recycler,
-            RecyclerView.@NonNull State state) {
+            @NonNull State state) {
         if (DEBUG) Log.v(getTag(), "scrollHorizontallyBy " + dx);
         if ((mFlag & PF_LAYOUT_ENABLED) == 0 || !hasDoneFirstLayout()) {
             return 0;
@@ -2456,7 +2454,7 @@ public final class GridLayoutManager extends RecyclerView.LayoutManager {
 
     @Override
     public int scrollVerticallyBy(int dy, @NonNull Recycler recycler,
-            RecyclerView.@NonNull State state) {
+            @NonNull State state) {
         if (DEBUG) Log.v(getTag(), "scrollVerticallyBy " + dy);
         if ((mFlag & PF_LAYOUT_ENABLED) == 0 || !hasDoneFirstLayout()) {
             return 0;
@@ -2813,7 +2811,7 @@ public final class GridLayoutManager extends RecyclerView.LayoutManager {
     }
 
     @Override
-    public void startSmoothScroll(RecyclerView.@NonNull SmoothScroller smoothScroller) {
+    public void startSmoothScroll(@NonNull RecyclerView.SmoothScroller smoothScroller) {
         skipSmoothScrollerOnStopInternal();
         super.startSmoothScroll(smoothScroller);
         if (smoothScroller.isRunning() && smoothScroller instanceof GridLinearSmoothScroller) {
@@ -3638,8 +3636,8 @@ public final class GridLayoutManager extends RecyclerView.LayoutManager {
     }
 
     @Override
-    public void onAdapterChanged(RecyclerView.@Nullable Adapter oldAdapter,
-            RecyclerView.@Nullable Adapter newAdapter) {
+    public void onAdapterChanged(@Nullable RecyclerView.Adapter oldAdapter,
+            @Nullable RecyclerView.Adapter newAdapter) {
         if (DEBUG) Log.v(getTag(), "onAdapterChanged to " + newAdapter);
         if (oldAdapter != null) {
             discardLayoutInfo();
@@ -3760,8 +3758,8 @@ public final class GridLayoutManager extends RecyclerView.LayoutManager {
     }
 
     @Override
-    public int getRowCountForAccessibility(RecyclerView.@NonNull Recycler recycler,
-            RecyclerView.@NonNull State state) {
+    public int getRowCountForAccessibility(@NonNull Recycler recycler,
+            @NonNull State state) {
         if (mOrientation == HORIZONTAL && mGrid != null) {
             return mGrid.getNumRows();
         }
@@ -3769,8 +3767,8 @@ public final class GridLayoutManager extends RecyclerView.LayoutManager {
     }
 
     @Override
-    public int getColumnCountForAccessibility(RecyclerView.@NonNull Recycler recycler,
-            RecyclerView.@NonNull State state) {
+    public int getColumnCountForAccessibility(@NonNull Recycler recycler,
+            @NonNull State state) {
         if (mOrientation == VERTICAL && mGrid != null) {
             return mGrid.getNumRows();
         }
@@ -3778,8 +3776,8 @@ public final class GridLayoutManager extends RecyclerView.LayoutManager {
     }
 
     @Override
-    public void onInitializeAccessibilityNodeInfoForItem(RecyclerView.@NonNull Recycler recycler,
-            RecyclerView.@NonNull State state, @NonNull View host,
+    public void onInitializeAccessibilityNodeInfoForItem(@NonNull Recycler recycler,
+            @NonNull State state, @NonNull View host,
             @NonNull AccessibilityNodeInfoCompat info) {
         ViewGroup.LayoutParams lp = host.getLayoutParams();
         if (mGrid == null || !(lp instanceof LayoutParams)) {

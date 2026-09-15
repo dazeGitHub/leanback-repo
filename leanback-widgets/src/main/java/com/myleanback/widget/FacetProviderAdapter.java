@@ -15,7 +15,7 @@
  */
 package com.myleanback.widget;
 
-import org.jspecify.annotations.Nullable;
+import androidx.annotation.Nullable;
 
 /**
  * Optional interface that implemented by

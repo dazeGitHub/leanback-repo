@@ -1,9 +1,7 @@
 package com.example.testpad
 
-import android.content.Intent
 import android.os.Bundle
 import android.util.Log
-import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import com.example.testpad.utils.DeviceUtils
 import com.myleanback.widget.OnChildViewHolderSelectedListener
@@ -17,7 +15,7 @@ class MyVerticalGridViewActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_vertical_grid)
+        setContentView(R.layout.activity_my_vertical_grid)
 
         val gridView = findViewById<VerticalGridView>(R.id.verticalGridView)
 

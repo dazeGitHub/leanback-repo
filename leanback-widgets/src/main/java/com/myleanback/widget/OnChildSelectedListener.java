@@ -19,8 +19,8 @@ package com.myleanback.widget;
 import android.view.View;
 import android.view.ViewGroup;
 
-import org.jspecify.annotations.NonNull;
-import org.jspecify.annotations.Nullable;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
 /**
  * Interface for receiving notification when a child of this

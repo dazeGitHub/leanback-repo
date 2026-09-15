@@ -28,12 +28,12 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.animation.Interpolator;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.annotation.RestrictTo;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.SimpleItemAnimator;
 
-import org.jspecify.annotations.NonNull;
-import org.jspecify.annotations.Nullable;
 
 /**
  * An abstract base class for vertically and horizontally scrolling lists. The items come
@@ -182,7 +182,8 @@ public abstract class BaseGridView extends RecyclerView {
          * @param dy y distance in pixels.
          * @return Interpolator to be used or null for default interpolator.
          */
-        @Nullable Interpolator configSmoothScrollByInterpolator(int dx, int dy);
+        @Nullable
+        Interpolator configSmoothScrollByInterpolator(int dx, int dy);
     }
 
     /**
@@ -236,7 +237,7 @@ public abstract class BaseGridView extends RecyclerView {
          *
          * @param state Transient state of RecyclerView
          */
-        void onLayoutCompleted(RecyclerView.@NonNull State state);
+        void onLayoutCompleted(@NonNull State state);
     }
 
     GridLayoutManager mLayoutManager;
@@ -281,7 +282,7 @@ public abstract class BaseGridView extends RecyclerView {
         ((SimpleItemAnimator) getItemAnimator()).setSupportsChangeAnimations(false);
         super.addRecyclerListener(new RecyclerView.RecyclerListener() {
             @Override
-            public void onViewRecycled(RecyclerView.@NonNull ViewHolder holder) {
+            public void onViewRecycled(@NonNull ViewHolder holder) {
                 mLayoutManager.onChildRecycled(holder);
             }
         });
@@ -925,7 +926,7 @@ public abstract class BaseGridView extends RecyclerView {
     }
 
     @Override
-    public void setLayoutManager(RecyclerView.@Nullable LayoutManager layout) {
+    public void setLayoutManager(@Nullable LayoutManager layout) {
         if (layout == null) {
             super.setLayoutManager(null);
             if (mLayoutManager != null) {
@@ -958,7 +959,7 @@ public abstract class BaseGridView extends RecyclerView {
      * @param view    The view to get offsets.
      * @param offsets offsets[0] holds offset of X, offsets[1] holds offset of Y.
      */
-    public void getViewSelectedOffsets(@NonNull View view, int @NonNull [] offsets) {
+    public void getViewSelectedOffsets(@NonNull View view, @NonNull int [] offsets) {
         mLayoutManager.getViewSelectedOffsets(view, offsets);
     }
 

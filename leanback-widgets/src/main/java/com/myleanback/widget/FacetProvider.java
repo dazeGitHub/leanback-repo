@@ -15,8 +15,8 @@
  */
 package com.myleanback.widget;
 
-import org.jspecify.annotations.NonNull;
-import org.jspecify.annotations.Nullable;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
 public interface FacetProvider {
 
