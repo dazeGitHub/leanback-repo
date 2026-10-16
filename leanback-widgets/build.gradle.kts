@@ -37,7 +37,7 @@ publishing {
             }
             groupId = "com.github.dazeGitHub"
             artifactId = "components"
-            version = "2.0.1"
+            version = "2.1.0"
         }
     }
 }
